@@ -1,0 +1,23 @@
+{
+  "name": "W07D04_Express_Middelwares",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+"start":"nodemon index.js" 
+ },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Khuldoonqataesheh/W07D04_Express_Middelwares.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Khuldoonqataesheh/W07D04_Express_Middelwares/issues"
+  },
+  "homepage": "https://github.com/Khuldoonqataesheh/W07D04_Express_Middelwares#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}

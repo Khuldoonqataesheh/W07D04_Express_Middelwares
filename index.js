@@ -1,12 +1,11 @@
-const { log } = require("console");
+
 const express = require("express");
-const { CLIENT_RENEG_LIMIT } = require("tls");
 const app = express();
 const port = 3000;
 
 const users = ["John", "Mark"];
 
-
+products = ["keyboard" , "mouse "]
 const logUsers  = (req,res,next)=>{
     console.log(users);
     next()
@@ -17,7 +16,7 @@ const logMethod   = (req,res,next)=>{
         next();
     
 }
-app.use("/users",logMethod)
+// app.use("/users",logMethod)
 
 
 app.use(logUsers)
@@ -36,18 +35,32 @@ app.use((error,req,res,next)=>{
    
 })
 
-const authRouter = express.Router();
-app.use("/users",authRouter);
+const userRouter = express.Router();
+app.use("/users",userRouter);
 
-authRouter.post("/create", (req, res) => {
+userRouter.post("/create", (req, res , next) => {
     const name = req.body.name;
     users.push(name)
     res.send(users);
+    next()
   });
 
-  authRouter.use("/create",()=>{
-      console.log(req.body.name)
+  userRouter.use("/create",(req, res)=>{
+      console.log(users)
+      console.log(req.body)
+
   })
+
+  const productsRouter = express.Router();
+app.use("/products",productsRouter);
+
+productsRouter.post("/update", (req, res , next) => {
+    const name = req.body.name;
+    users.push(name)
+    res.send(users);
+    next()
+  });
+
 app.listen(port, () => {
   console.log(`Example app listening at http://localhost:${port}`);
 });
